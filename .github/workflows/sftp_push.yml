@@ -24,5 +24,5 @@ jobs:
         # Source directory to upload from (will upload all files in this directory)
         sourceDir: ./blocksy-child/
         # Remote directory to upload to (WARNING: overwrites ALL files in this directory)
-        targetDir: sftp://ssh.malteskjoldager.dk/customers/1/2/4/malteskjoldager.dk/httpd.www/kea/2.Semester/Tema_9/ungebyen/wp-content/themes
+        targetDir: sftp://ssh.malteskjoldager.dk/customers/1/2/4/malteskjoldager.dk/httpd.www/kea/2.Semester/Tema_9/ungebyen/wp-content/themes/
         
