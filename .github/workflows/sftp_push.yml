@@ -20,7 +20,7 @@ jobs:
         # SFTP username
         username: malteskjoldager.dk 
         # SFTP password
-        password: ${{ secrets.PASSWORD }}
+        password: ${{ secrets.SFTP_PASSWORD }}
         # Source directory to upload from (will upload all files in this directory)
         sourceDir: ./blocksy-child/
         # Remote directory to upload to (WARNING: overwrites ALL files in this directory)
