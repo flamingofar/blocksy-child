@@ -1,10 +1,28 @@
-name: Push to SFTP
-uses: AbleLincoln/push-to-sftp@v1.0
-  with:
-    host: ssh.malteskjoldager.dk
-    port: 22
-    username: malteskjoldager
-    password: Mia-Maja1066
-    local-dir: /Users/malteskjoldager/Desktop/kea/2.Semester/Tema_9/blocksy-child
-    server-dir: sftp://ssh.malteskjoldager.dk/customers/1/2/4/malteskjoldager.dk/httpd.www/kea/2.Semester/Tema_9/ungebyen/wp-content/themes
+on: push
+name: 🚀 Deploy website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
     
+    - name: Push to SFTP
+      # You may pin to the exact commit or the version.
+      # uses: AbleLincoln/push-to-sftp@a6c117bb60fdc94ab8e5b139cdb0b19bea582c81
+      uses: AbleLincoln/push-to-sftp@v1.2
+      with:
+        # SFTP server
+        host: ssh.malteskjoldager.dk
+        # SFTP server port
+        port: 22
+        # SFTP username
+        username: malteskjoldager.dk 
+        # SFTP password
+        password: ${{ secrets.password }}
+        # Source directory to upload from (will upload all files in this directory)
+        sourceDir: root
+        # Remote directory to upload to (WARNING: overwrites ALL files in this directory)
+        targetDir: sftp://ssh.malteskjoldager.dk/customers/1/2/4/malteskjoldager.dk/httpd.www/kea/2.Semester/Tema_9/ungebyen/wp-content/themes
+        
