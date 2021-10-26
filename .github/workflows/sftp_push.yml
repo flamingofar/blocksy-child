@@ -1,0 +1,10 @@
+name: Push to SFTP
+uses: AbleLincoln/push-to-sftp@v1.0
+  with:
+    host: ssh.malteskjoldager.dk
+    port: 22
+    username: malteskjoldager
+    password: Mia-Maja1066
+    local-dir: /Users/malteskjoldager/Desktop/kea/2.Semester/Tema_9/blocksy-child
+    server-dir: sftp://ssh.malteskjoldager.dk/customers/1/2/4/malteskjoldager.dk/httpd.www/kea/2.Semester/Tema_9/ungebyen/wp-content/themes
+    
