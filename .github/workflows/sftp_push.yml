@@ -20,7 +20,7 @@ jobs:
         # SFTP username
         username: malteskjoldager.dk 
         # SFTP password
-        password: ${{ secrets.password }}
+        password: Mia-Maja1066
         # Source directory to upload from (will upload all files in this directory)
         sourceDir: ./tema_9_child_theme/
         # Remote directory to upload to (WARNING: overwrites ALL files in this directory)
