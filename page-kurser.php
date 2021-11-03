@@ -56,23 +56,22 @@
                 }
 
                 function vis(json) {
-                    console.log(json)
 
-                    // const retterTemplate = document.querySelector("template");
-                    // const container = document.querySelector("#liste")
+                    const retterTemplate = document.querySelector("template");
+                    const container = document.querySelector("#liste")
 
-                    // json.forEach((el) => {
+                    json.forEach((el) => {
             
-                    //     let klon = retterTemplate.cloneNode(true).content;
-                    //     klon.querySelector(".navn").textContent = el.title.rendered;
-                    //     klon.querySelector("img").src = el.guid.rendered;
-                    //     klon.querySelector(".beskrivelse").textContent = "";
-                    //     // klon.querySelector(".pris").textContent = `Årgang: ${el.year}`;
+                        let klon = retterTemplate.cloneNode(true).content;
+                        klon.querySelector(".navn").textContent = el.title.rendered;
+                        klon.querySelector("img").src = el._billede.guid;
+                        klon.querySelector(".beskrivelse").textContent = el._info_tekst;
+                        // klon.querySelector(".pris").textContent = `Årgang: ${el.year}`;
                 
             
-                    //     //Appender alle elementerne
-                    //     container.appendChild(klon);
-                    //     })
+                        //Appender alle elementerne
+                        container.appendChild(klon);
+                        })
                     }
 
                 loadJSON();
