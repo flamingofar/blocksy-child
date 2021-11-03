@@ -34,7 +34,7 @@
         </template>
 
         <script>
-            const url_test = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/child_themes/wp-json/pods/v1/pods/retter"
+            const url_test = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/kursus"
 
             async function testJSON() {
                 const JSONData = await fetch(url_test);
@@ -46,7 +46,7 @@
 
 
 
-            const url = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/child_themes/wp-json/wp/v2/retter"
+            const url = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/kursus"
             // Rest API Call
                 async function loadJSON() {
                         const JSONData = await fetch(url);
@@ -58,21 +58,21 @@
                 function vis(json) {
                     console.log(json)
 
-                    const retterTemplate = document.querySelector("template");
-                    const container = document.querySelector("#liste")
+                    // const retterTemplate = document.querySelector("template");
+                    // const container = document.querySelector("#liste")
 
-                    json.forEach((el) => {
+                    // json.forEach((el) => {
             
-                        let klon = retterTemplate.cloneNode(true).content;
-                        klon.querySelector(".navn").textContent = el.title.rendered;
-                        klon.querySelector("img").src = el.guid.rendered;
-                        klon.querySelector(".beskrivelse").textContent = "";
-                        // klon.querySelector(".pris").textContent = `Årgang: ${el.year}`;
+                    //     let klon = retterTemplate.cloneNode(true).content;
+                    //     klon.querySelector(".navn").textContent = el.title.rendered;
+                    //     klon.querySelector("img").src = el.guid.rendered;
+                    //     klon.querySelector(".beskrivelse").textContent = "";
+                    //     // klon.querySelector(".pris").textContent = `Årgang: ${el.year}`;
                 
             
-                        //Appender alle elementerne
-                        container.appendChild(klon);
-                        })
+                    //     //Appender alle elementerne
+                    //     container.appendChild(klon);
+                    //     })
                     }
 
                 loadJSON();
