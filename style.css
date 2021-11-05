@@ -7,7 +7,9 @@
  *
  * @format
  */
-
+body {
+	background-color: blue;
+}
 article {
 	width: 30rem;
 	display: flex;
