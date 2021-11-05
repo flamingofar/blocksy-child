@@ -17,7 +17,7 @@ get_header();
 
 <div id="primary" class="content-area">
 	<main id="main" class="site-main">
-		<div id="liste" style="background: red;"></div>
+		<div id="liste" ></div>
 
         <template>
                 <article>
