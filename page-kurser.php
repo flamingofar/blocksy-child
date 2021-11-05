@@ -63,7 +63,7 @@ get_header();
                     json.forEach((el) => {
             
                         let klon = retterTemplate.cloneNode(true).content;
-                        klon.querySelector(".navn").textContent = el.title.rendered;
+                        klon.querySelector(".navn").textContent = el._titel;
                         klon.querySelector("img").src = el._billede.guid;
                         klon.querySelector(".beskrivelse").textContent = el._info_tekst;
                         // klon.querySelector(".pris").textContent = `Årgang: ${el.year}`;
