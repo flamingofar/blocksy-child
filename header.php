@@ -22,7 +22,7 @@
 
 	<?php wp_head(); ?>
 	<?php do_action('blocksy:head:end') ?>
-	<link rel="stylesheet" type="" href="/style.css">
+	<link rel="stylesheet" type="" href="style.css">
 </head>
 
 <body <?php body_class(); ?> <?php echo blocksy_body_attr() ?>>
