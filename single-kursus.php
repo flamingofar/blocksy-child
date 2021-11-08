@@ -18,12 +18,14 @@ get_header();
 		<main id="main" class="site-main filter-main">
 		
 		<section class="single_section">
-			<div class="text">
-				<h2 class="navn">DET VI TILBYDER</h2>
-				<h3 class="titel"></h3>
-				<p class="beskrivelse"></p>
+			<div class="header_section">
+				<div class="text">
+					<h2 class="navn">DET VI TILBYDER</h2>
+					<h3 class="titel"></h3>
+					<p class="beskrivelse"></p>
+				</div>
+				<img class="fn" src="#" alt="" />
 			</div>
-			<img class="fn" src="#" alt="" />
 			<div class="details_container">
 				<div class="details">
 					<div class="icon"></div>
@@ -38,6 +40,15 @@ get_header();
 					<p class="antal"></p>
 				</div>
 			</div>
+		</section>
+		<section>
+			<article>
+				<img class="kursus_img" src="#" alt="">
+				<div class="tekst_1_container">
+					<h3 class="titel_1"></h3>
+					<p class="tekst_1"></p>
+				</div>
+			</article>
 		</section>
 
 		<script>
@@ -55,12 +66,18 @@ get_header();
 			}
 
 			function vis() {
+				// Section 1
                 document.querySelector(".titel").textContent = kursus._titel;
                 document.querySelector(".fn").src = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-content/uploads/2021/11/fn_verdensmaal.png";
                 document.querySelector(".beskrivelse").innerHTML = kursus._info_tekst;
                 document.querySelector(".pris").textContent = `${kursus.pris}`;
 				document.querySelector(".antal").textContent = `${kursus.antal_deltagere}kr`;
 				document.querySelector(".varighed").textContent = `${kursus.varighed}`;
+
+				// Section 2
+				document.querySelector(".fn").src = kursus._billede.guid;
+				document.querySelector(".titel_1").textContent = `${kursus.titel_1}`;
+				document.querySelector(".tekst_1").textContent = `${kursus.tekst_1}`;
 				
 			}
 			loadJSON()
