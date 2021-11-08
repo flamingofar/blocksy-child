@@ -18,7 +18,7 @@ get_header();
 		<main id="main" class="site-main">
 		
 		<section class="single_section">
-			<h2 class="navn">Ret</h2>
+			<h2 class="navn">Hej</h2>
 			<article class="ret" style="cursor: initial">
 				<img src="#" alt="" />
 
@@ -44,7 +44,7 @@ get_header();
 			async function loadJSON() {
 				const JSONData = await fetch(url);
 				kursus = await JSONData.json();
-				
+				console.log(kursus)
 				vis();
 			}
 
