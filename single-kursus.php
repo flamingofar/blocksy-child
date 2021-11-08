@@ -21,8 +21,9 @@ get_header();
 			<div class="text">
 				<h2 class="navn">DET VI TILBYDER</h2>
 				<h3 class="navn"></h3>
-				<img src="#" alt="" />
+				<p class="beskrivelse"></p>
 			</div>
+			<img src="#" alt="" />
 			<div class="details_container">
 				<div class="details">
 					<div class="icon"></div>
@@ -55,7 +56,7 @@ get_header();
 
 			function vis() {
                 document.querySelector(".navn").textContent = kursus.titel;
-                document.querySelector(".beskrivelse").innerHTML = kursus.beskrivelse;
+                document.querySelector(".beskrivelse").innerHTML = kursus._info_tekst;
                 document.querySelector(".pris").textContent = `${kursus.pris}kr`;
 				document.querySelector(".antal").textContent = `${kursus.antal_deltagere}kr`;
 				document.querySelector(".varihed").textContent = `${kursus.varighed}kr`;
