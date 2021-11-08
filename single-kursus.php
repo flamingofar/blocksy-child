@@ -49,10 +49,10 @@ get_header();
 			}
 
 			function vis() {
-                // document.querySelector(".navn").textContent = ret.titel;
-                // document.querySelector("article img").src = ret.billede.guid;
-                // document.querySelector(".beskrivelse").textContent = ret.beskrivelse;
-                // document.querySelector(".pris").textContent = `${ret.pris}kr`;
+                document.querySelector(".navn").textContent = kursus._titel;
+                document.querySelector("article img").src = kursus.billede.guid;
+                document.querySelector(".beskrivelse").textContent = kursus.tekst_2;
+                document.querySelector(".pris").textContent = `${kursus.pris}kr`;
 
 				document.querySelector(".single_section button").addEventListener("click", () => {
 					console.log("hej")
