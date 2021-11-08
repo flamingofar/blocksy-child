@@ -61,6 +61,7 @@ get_header();
                     const container = document.querySelector("#liste")
 
                     json.forEach((el) => {
+                        console.log(el)
             
                         let klon = retterTemplate.cloneNode(true).content;
                         klon.querySelector(".navn").textContent = el._titel;
