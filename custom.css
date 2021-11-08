@@ -1,1 +1,79 @@
 /** @format */
+/** @format */
+:root{
+	--text-color: #1D271D;
+	--bg-color: #F8F8F8
+	--green-accent-color: #ADC4AD;
+	--blue-accent-color: #8A9ED6;
+	--orange-accent-color: #F7651C
+}
+
+
+.filter-main {
+	display: grid;
+	grid-template-columns:
+		minmax(1rem, 1fr)
+		minmax(auto, 1000px)
+		minmax(1rem, 1fr);
+	
+}
+
+.filter-main > * {
+	grid-column: 2;
+	gap: 1rem;
+}
+
+.filter-main article {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+
+	border: 2px solid var(--text-color);
+}
+
+.filter-main article img {
+	width: 100%;
+}
+
+.filter-main article h2 {
+	font-size: 1.5rem;
+	padding: 0.5rem;
+}
+
+.filter-main #liste {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}
+
+.filter-main .details {
+	padding: 0.5rem 1rem;
+}
+
+.filter-main .name img {
+	border-bottom: 2px solid var(--text-color);
+}
+.filter-main button {
+	margin: 0.5rem;
+}
+
+
+
+@media screen and (min-width: 767px) {
+	.filter-main article {
+	  background: lightcoral;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+	.filter-main article {
+		flex-direction: row;
+		background: lightgreen;
+	}
+  }
+
+@media screen and (min-width: 1200px) {
+	.filter-main article {
+	  background: lightblue;
+  }
+}
+
