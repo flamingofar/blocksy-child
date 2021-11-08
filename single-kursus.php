@@ -50,7 +50,7 @@ get_header();
 
 			function vis() {
                 document.querySelector(".navn").textContent = kursus._titel;
-                document.querySelector("article img").src = kursus.billede.guid;
+                document.querySelector("article img").src = kursus._billede.guid;
                 document.querySelector(".beskrivelse").textContent = kursus.tekst_2;
                 document.querySelector(".pris").textContent = `${kursus.pris}kr`;
 
