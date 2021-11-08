@@ -18,25 +18,30 @@ get_header();
 		<main id="main" class="site-main">
 		
 		<section class="single_section">
-			<h2 class="navn">Hej</h2>
-			<article class="ret" style="cursor: initial">
+			<div class="text">
+				<h2 class="navn">DET VI TILBYDER</h2>
+				<h3 class="navn"></h3>
 				<img src="#" alt="" />
-
+			</div>
+			<div class="details_container">
 				<div class="details">
-					<p class="kort"></p>
-
-					<div class="single-details">
-						<p class="beskrivelse"></p>
-						<div class="pris">-</div>
-					</div>
+					<div class="icon"></div>
+					<p class="varighed"></p>
 				</div>
-			</article>
-			<button>Tilbage</button>
+				<div class="details">
+					<div class="icon"></div>
+					<p class="pris"></p>
+				</div>
+				<div class="details">
+					<div class="icon"></div>
+					<p class="antal"></p>
+				</div>
+			</div>
 		</section>
 
 		<script>
 			/** @format */
-			const url = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/kursus/" + <?php echo get_the_ID() ?>;
+			const url = "http://testsite.test/wp-json/wp/v2/ret/" + <?php echo get_the_ID() ?>;
 
 			let kursus;
 			
@@ -44,20 +49,17 @@ get_header();
 			async function loadJSON() {
 				const JSONData = await fetch(url);
 				kursus = await JSONData.json();
-				console.log(kursus)
+				
 				vis();
 			}
 
 			function vis() {
-                document.querySelector(".navn").textContent = kursus._titel;
-                document.querySelector("article img").src = kursus._billede.guid;
-                document.querySelector(".beskrivelse").textContent = kursus.tekst_2;
+                document.querySelector(".navn").textContent = kursus.titel;
+                document.querySelector(".beskrivelse").innerHTML = kursus.beskrivelse;
                 document.querySelector(".pris").textContent = `${kursus.pris}kr`;
-
-				document.querySelector(".single_section button").addEventListener("click", () => {
-					console.log("hej")
-					history.back();
-				});
+				document.querySelector(".antal").textContent = `${kursus.antal_deltagere}kr`;
+				document.querySelector(".varihed").textContent = `${kursus.varighed}kr`;
+				
 			}
 			loadJSON()
 			</script>
