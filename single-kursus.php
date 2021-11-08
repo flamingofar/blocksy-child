@@ -59,7 +59,7 @@ get_header();
                 document.querySelector(".beskrivelse").innerHTML = kursus._info_tekst;
                 document.querySelector(".pris").textContent = `${kursus.pris}kr`;
 				document.querySelector(".antal").textContent = `${kursus.antal_deltagere}kr`;
-				document.querySelector(".varihed").textContent = `${kursus.varighed}kr`;
+				document.querySelector(".varighed").textContent = `${kursus.varighed}`;
 				
 			}
 			loadJSON()
