@@ -55,6 +55,10 @@
 	margin: 0.5rem;
 }
 
+.section_2 article {
+	background-color: var(--green-accent-color);
+}
+
 
 
 @media screen and (min-width: 767px) {

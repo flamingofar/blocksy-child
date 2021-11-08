@@ -17,7 +17,7 @@ get_header();
 <div id="primary" class="content-area">
 		<main id="main" class="site-main filter-main">
 		
-		<section class="single_section">
+		<section class="single_section section_1">
 			<div class="header_section">
 				<div class="text">
 					<h2 class="navn">DET VI TILBYDER</h2>
@@ -41,7 +41,7 @@ get_header();
 				</div>
 			</div>
 		</section>
-		<section>
+		<section class="section_2">
 			<article>
 				<img class="kursus_img" src="#" alt="">
 				<div class="tekst_1_container">
