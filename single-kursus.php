@@ -57,7 +57,7 @@ get_header();
 			function vis() {
                 document.querySelector(".navn").textContent = kursus.titel;
                 document.querySelector(".beskrivelse").innerHTML = kursus._info_tekst;
-                document.querySelector(".pris").textContent = `${kursus.pris}kr`;
+                document.querySelector(".pris").textContent = `${kursus.pris}`;
 				document.querySelector(".antal").textContent = `${kursus.antal_deltagere}kr`;
 				document.querySelector(".varighed").textContent = `${kursus.varighed}`;
 				
