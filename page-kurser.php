@@ -62,7 +62,7 @@ get_header();
 
                     data.forEach((el) => {
                         console.log(el)
-                        if(filter === "alle" || el._institut.includes(filter)){
+                        if(filter === "alle" || el._institut.includes(filter.toString())){
             
                         let klon = retterTemplate.cloneNode(true).content;
                         klon.querySelector(".navn").textContent = el._titel;
