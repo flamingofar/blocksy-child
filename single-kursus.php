@@ -23,7 +23,7 @@ get_header();
 				<h3 class="navn"></h3>
 				<p class="beskrivelse"></p>
 			</div>
-			<img src="#" alt="" />
+			<img class="fn" src="#" alt="" />
 			<div class="details_container">
 				<div class="details">
 					<div class="icon"></div>
@@ -56,7 +56,7 @@ get_header();
 
 			function vis() {
                 document.querySelector(".navn").textContent = kursus.titel;
-                document.querySelector("img").src = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-content/uploads/2021/11/fn_verdensmaal.png";
+                document.querySelector(".fn").src = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-content/uploads/2021/11/fn_verdensmaal.png";
                 document.querySelector(".beskrivelse").innerHTML = kursus._info_tekst;
                 document.querySelector(".pris").textContent = `${kursus.pris}`;
 				document.querySelector(".antal").textContent = `${kursus.antal_deltagere}kr`;
