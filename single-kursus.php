@@ -75,7 +75,7 @@ get_header();
 				document.querySelector(".varighed").textContent = `${kursus.varighed}`;
 
 				// Section 2
-				document.querySelector(".fn").src = kursus._billede.guid;
+				document.querySelector(".kursus_img").src = kursus._billede.guid;
 				document.querySelector(".titel_1").textContent = `${kursus.titel_1}`;
 				document.querySelector(".tekst_1").textContent = `${kursus.tekst_1}`;
 				
