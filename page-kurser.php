@@ -22,7 +22,7 @@ get_header();
 		<div id="liste" ></div>
 
         <template>
-                <article >
+                <article class="loop_click">
                     <div class="name">
                         <h2 class="navn"></h2>
                         <img src="#" alt="" />
@@ -68,6 +68,11 @@ get_header();
                         klon.querySelector(".navn").textContent = el._titel;
                         klon.querySelector("img").src = el._billede.guid;
                         klon.querySelector(".beskrivelse").textContent = el._info_tekst;
+                        klon
+							.querySelector(".loop_click")
+							.addEventListener("click", () => {
+							location.href = el.link
+								});
                 
             
                         //Appender alle elementerne
