@@ -15,7 +15,7 @@
 get_header();
 ?>
 <div id="primary" class="content-area">
-		<main id="main" class="site-main">
+		<main id="main" class="site-main filter-main">
 		
 		<section class="single_section">
 			<div class="text">
@@ -41,7 +41,7 @@ get_header();
 
 		<script>
 			/** @format */
-			const url = "http://testsite.test/wp-json/wp/v2/ret/" + <?php echo get_the_ID() ?>;
+			const url = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/kursus/" + <?php echo get_the_ID() ?>;
 
 			let kursus;
 			
@@ -49,7 +49,7 @@ get_header();
 			async function loadJSON() {
 				const JSONData = await fetch(url);
 				kursus = await JSONData.json();
-				
+				console.log(kursus)
 				vis();
 			}
 
