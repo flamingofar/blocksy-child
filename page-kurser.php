@@ -20,7 +20,7 @@ get_header();
 		<div id="liste" ></div>
 
         <template>
-                <article style="background: red">
+                <article >
                     <div class="name">
                         <h2 class="navn"></h2>
                         <img src="#" alt="" />
