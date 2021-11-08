@@ -20,7 +20,7 @@ get_header();
 		<section class="single_section">
 			<div class="text">
 				<h2 class="navn">DET VI TILBYDER</h2>
-				<h3 class="navn"></h3>
+				<h3 class="titel"></h3>
 				<p class="beskrivelse"></p>
 			</div>
 			<img class="fn" src="#" alt="" />
@@ -55,7 +55,7 @@ get_header();
 			}
 
 			function vis() {
-                document.querySelector(".navn").textContent = kursus.titel;
+                document.querySelector(".titel").textContent = kursus._titel;
                 document.querySelector(".fn").src = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-content/uploads/2021/11/fn_verdensmaal.png";
                 document.querySelector(".beskrivelse").innerHTML = kursus._info_tekst;
                 document.querySelector(".pris").textContent = `${kursus.pris}`;
