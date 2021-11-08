@@ -36,30 +36,30 @@ get_header();
 
 		<script>
 			/** @format */
-			const url = "http://testsite.test/wp-json/wp/v2/ret/" + <?php echo get_the_ID() ?>;
+			// const url = "http://testsite.test/wp-json/wp/v2/ret/" + <?php echo get_the_ID() ?>;
 
-			let ret;
+			// let ret;
 			
-			// Rest API Call
-			async function loadJSON() {
-				const JSONData = await fetch(url);
-				ret = await JSONData.json();
+			// // Rest API Call
+			// async function loadJSON() {
+			// 	const JSONData = await fetch(url);
+			// 	ret = await JSONData.json();
 				
-				vis();
-			}
+			// 	vis();
+			// }
 
-			function vis() {
-                document.querySelector(".navn").textContent = ret.titel;
-                document.querySelector("article img").src = ret.billede.guid;
-                document.querySelector(".beskrivelse").textContent = ret.beskrivelse;
-                document.querySelector(".pris").textContent = `${ret.pris}kr`;
+			// function vis() {
+            //     document.querySelector(".navn").textContent = ret.titel;
+            //     document.querySelector("article img").src = ret.billede.guid;
+            //     document.querySelector(".beskrivelse").textContent = ret.beskrivelse;
+            //     document.querySelector(".pris").textContent = `${ret.pris}kr`;
 
 				document.querySelector(".single_section button").addEventListener("click", () => {
 					console.log("hej")
-					history.back();
+					// history.back();
 				});
 			}
-			loadJSON()
+			// loadJSON()
 			</script>
 
 		</main><!-- #main -->
