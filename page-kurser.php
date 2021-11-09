@@ -19,6 +19,11 @@ get_header();
 	<main id="main" class="site-main filter-main">
     <nav id="filtrering"><button class="filter" data-cat="alle"> Alle </button>
 		</nav> 
+        <form>
+<select id="selectFilter" name="dropdown">
+    <option value="alle" selected>Alle</option>
+</select>
+</form>
 		<div id="liste" ></div>
 
         <template>
@@ -38,19 +43,24 @@ get_header();
         <script>
            
 
-            let data, categories;
+            let data, categories, tema;
             let filter = "alle"
+            let filterTema = "alle"
 
+            const temaUrl = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/tema?per_page=40";
             const catUrl = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/omrde?per_page=40";
             const url = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/kursus?per_page=40"
             // Rest API Call
                 async function loadJSON() {
                     const JSONData = await fetch(url);
                     const catJSONData = await fetch(catUrl);
+                    const temaJSONData = await fetch(temaUrl);
+                    tema = await temaJSONData.json()
                     categories = await catJSONData.json()
                     data = await JSONData.json();
                     vis(data);
                     opretKnapper();
+                    opretSelects();
                 }
 
                 function vis() {
@@ -61,8 +71,7 @@ get_header();
                     container.textContent ="";
 
                     data.forEach((el) => {
-                        console.log(el._institut)
-                        if(filter === "alle" || el._institut.includes(filter)){
+                        if(filter === "alle" || el._institut.includes(filter) && filterTema === "alle" || el._tema.includes(filterTema)) {
             
                         let klon = kursusTemplate.cloneNode(true).content;
                         klon.querySelector(".navn").textContent = el._titel;
@@ -81,6 +90,7 @@ get_header();
                         })
                     }
 
+// ----------- OPRET KNAPPER ----------- //
                 function opretKnapper() {
                     categories.forEach(el => {
                         document.querySelector("#filtrering").innerHTML +=`<button class="filter" data-cat="${el.name}">${el.name}</button>`
@@ -97,12 +107,37 @@ get_header();
                         
                     })
                 }
+
+// ----------- OPRET SELECTS ----------- //
+                function opretSelects() {
+                    tema.forEach(el => {
+                        document.querySelector("#selectFilter").innerHTML +=`<option value = "${el.slug}" selected>${el.name}</option>`
+
+                        
+                    })
+                    addEventlistenersSelects()
+                }
+
+                function addEventlistenersSelects() {
+                    document.querySelectorAll("#selectFilter option").forEach( el => {
+                        
+                        el.addEventListener("click", filtrering);
+                        
+                    })
+                }
+
+// ----------- FILTRERING NORMAL ----------- //
                 function filtrering() {
                     filter = this.dataset.cat.toString();
-                    console.log(filter)
                     vis()
                 }
 
+// ----------- FILTRERING NORMAL ----------- //
+function filtrering() {
+                    filterTema = this.value;
+                    console.log(filterTema)
+                    vis()
+                }
                 loadJSON();
         </script>
 
