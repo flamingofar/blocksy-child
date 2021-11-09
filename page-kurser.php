@@ -36,18 +36,18 @@ get_header();
         </template>
 
         <script>
-            const url_test = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/kursus"
-            const catUrl = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/omrde";
+           
 
             let data, categories;
             let filter = "alle"
 
-            const url = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/kursus"
+            const catUrl = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/omrde?per_page=40";
+            const url = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-json/wp/v2/kursus?per_page=40"
             // Rest API Call
                 async function loadJSON() {
-                        const JSONData = await fetch(url);
-                        const catJSONData = await fetch(catUrl);
-                        categories = await catJSONData.json()
+                    const JSONData = await fetch(url);
+                    const catJSONData = await fetch(catUrl);
+                    categories = await catJSONData.json()
                     data = await JSONData.json();
                     vis(data);
                     opretKnapper();
@@ -55,16 +55,16 @@ get_header();
 
                 function vis() {
 
-                    const retterTemplate = document.querySelector("template");
+                    const kursusTemplate = document.querySelector("template");
                     const container = document.querySelector("#liste")
 
                     container.textContent ="";
 
                     data.forEach((el) => {
-                        console.log(el)
-                        if(filter === "alle" || el._institut.includes(toString(filter)){
+                        console.log(el._institut)
+                        if(filter === "alle" || el._institut.includes(filter)){
             
-                        let klon = retterTemplate.cloneNode(true).content;
+                        let klon = kursusTemplate.cloneNode(true).content;
                         klon.querySelector(".navn").textContent = el._titel;
                         klon.querySelector("img").src = el._billede.guid;
                         klon.querySelector(".beskrivelse").textContent = el._info_tekst;
@@ -98,7 +98,7 @@ get_header();
                     })
                 }
                 function filtrering() {
-                    filter = this.dataset.cat;
+                    filter = this.dataset.cat.toString();
                     console.log(filter)
                     vis()
                 }
