@@ -123,6 +123,7 @@ p:empty {
 		flex: 1;
 	}
 	.filter-main .details {
+		padding: 0 0.8em;
 		flex: 1.5;
 	}
 	.filter-main .name img {
