@@ -145,7 +145,7 @@ get_header();
                 function filtreringTema() {
                     filterTema = this.value.toLowerCase();
 
-                    
+                    console.log("Filter Tema:"+filterTema)
 
                     vis()
                 }
