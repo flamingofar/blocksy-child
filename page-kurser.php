@@ -17,7 +17,7 @@ get_header();
 
 <div id="primary" class="content-area">
 	<main id="main" class="site-main filter-main">
-    <nav id="filtrering"><button class="filter" data-cat="alle"> Alle </button>
+    <nav id="filtrering"><button class="filter valgt" data-cat="alle"> Alle </button>
 		</nav> 
         <form>
 <select id="selectFilter" name="dropdown">
@@ -67,11 +67,12 @@ get_header();
 
                     const kursusTemplate = document.querySelector("template");
                     const container = document.querySelector("#liste")
-
                     container.textContent ="";
 
                     data.forEach((el) => {
-                        if(filter === "alle" || el._institut.includes(filter) && filterTema === "alle" || el._tema.includes(filterTema)) {
+                        if((filter == "alle" || el._institut.includes(filter)) && (filterTema == "alle" || el._tema[0].toLowerCase().includes(filterTema)) ) {
+                            
+
             
                         let klon = kursusTemplate.cloneNode(true).content;
                         klon.querySelector(".navn").textContent = el._titel;
@@ -111,7 +112,7 @@ get_header();
 // ----------- OPRET SELECTS ----------- //
                 function opretSelects() {
                     tema.forEach(el => {
-                        document.querySelector("#selectFilter").innerHTML +=`<option value = "${el.slug}" selected>${el.name}</option>`
+                        document.querySelector("#selectFilter").innerHTML +=`<option value = "${el.name.toLowerCase()}" selected>${el.name}</option>`
 
                         
                     })
@@ -121,7 +122,7 @@ get_header();
                 function addEventlistenersSelects() {
                     document.querySelectorAll("#selectFilter option").forEach( el => {
                         
-                        el.addEventListener("click", filtrering);
+                        el.addEventListener("click", filtreringTema);
                         
                     })
                 }
@@ -129,13 +130,23 @@ get_header();
 // ----------- FILTRERING NORMAL ----------- //
                 function filtrering() {
                     filter = this.dataset.cat.toString();
+
+                    document.querySelectorAll("#filtrering .filter").forEach(elm => {
+                        console.log("Sut")
+                        elm.classList.remove("valgt");
+                        });
+                    //tilføj .valgt til den valgte
+                        this.classList.add("valgt");
+
                     vis()
                 }
 
-// ----------- FILTRERING NORMAL ----------- //
-function filtrering() {
-                    filterTema = this.value;
-                    console.log(filterTema)
+// ----------- FILTRERING TEMA ----------- //
+                function filtreringTema() {
+                    filterTema = this.value.toLowerCase();
+
+                    
+
                     vis()
                 }
                 loadJSON();
