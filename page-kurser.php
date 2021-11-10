@@ -26,16 +26,31 @@ get_header();
 </form>
 		<div id="liste" ></div>
 
+        
+
         <template>
                 <article class="loop_click">
                     <div class="name">
-                        <h2 class="navn"></h2>
                         <img src="#" alt="" />
                     </div>
                             
                     <div class="details">
+                        <div>
+                        <h2 class="navn"></h2>
+                        <div class="tags">
+                            <span class="institut_1 institut"></span>
+                            <span class="institut_2 institut"></span>
+                            <span class="fag_1 fag"></span>
+                            <span class="fag_2 fag"></span>
+                        </div>
+
+                        </div>
+                        
                         <p class="beskrivelse"></p>
-                        <p class="pris"></p>
+
+                        <div>
+                            <button class="se_mere">Se Mere</button>
+                        </div>
                     </div>
                 </article>
         </template>
@@ -59,6 +74,7 @@ get_header();
                     categories = await catJSONData.json()
                     dataWP = await JSONData.json();
                     vis(dataWP);
+                    console.log(dataWP)
                     opretKnapper();
                     opretSelects();
                 }
@@ -73,10 +89,19 @@ get_header();
                         if((filter == "alle" || el._institut.includes(filter)) && (filterTema == "alle" || el._tema[0].toLowerCase().includes(filterTema)) ) {
                             
 
+                            
+                            
+                    
+
             
                         let klon = kursusTemplate.cloneNode(true).content;
-                        klon.querySelector(".navn").textContent = el._titel;
                         klon.querySelector("img").src = el._billede.guid;
+                        klon.querySelector(".navn").textContent = el._titel;
+                        klon.querySelector(".institut_1").textContent = el._institut[0];
+                        klon.querySelector(".institut_2").textContent = el._institut[1];
+                        klon.querySelector(".fag_1").textContent = el._skole_fag[0];
+                        klon.querySelector(".fag_2").textContent = el._skole_fag[1];
+
                         klon.querySelector(".beskrivelse").textContent = el._info_tekst;
                         klon
 							.querySelector(".loop_click")
@@ -121,6 +146,7 @@ get_header();
 
                 function addEventlistenersSelects() {
                     document.querySelectorAll("#selectFilter").forEach( el => {
+                        
                         el.addEventListener("change", filtreringTema);
                         
                     })
@@ -131,7 +157,7 @@ get_header();
                     filter = this.dataset.cat.toString();
 
                     document.querySelectorAll("#filtrering .filter").forEach(elm => {
-                        console.log("Sut")
+                        
                         elm.classList.remove("valgt");
                         });
                     //tilføj .valgt til den valgte
@@ -142,6 +168,7 @@ get_header();
 
 // ----------- FILTRERING TEMA ----------- //
                 function filtreringTema() {
+                    // filterTema = this.value.toLowerCase();
                     filterTema = document.querySelector("#selectFilter").value;
 
                     console.log(filterTema)
