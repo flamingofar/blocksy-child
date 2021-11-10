@@ -11,7 +11,8 @@
 	--orange-accent-color: #f7651c;
 }
 
-*:empty {
+span:empty,
+p:empty {
 	display: none;
 }
 
