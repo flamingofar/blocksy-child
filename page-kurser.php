@@ -120,9 +120,8 @@ get_header();
                 }
 
                 function addEventlistenersSelects() {
-                    document.querySelectorAll("#selectFilter option").forEach( el => {
-                        
-                        el.addEventListener("click", filtreringTema);
+                    document.querySelectorAll("#selectFilter").forEach( el => {
+                        el.addEventListener("change", filtreringTema);
                         
                     })
                 }
@@ -143,9 +142,9 @@ get_header();
 
 // ----------- FILTRERING TEMA ----------- //
                 function filtreringTema() {
-                    filterTema = this.value.toLowerCase();
+                    filterTema = document.querySelector("#selectFilter").value;
 
-                    console.log("Filter Tema:"+filterTema)
+                    console.log(filterTema)
 
                     vis()
                 }
