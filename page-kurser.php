@@ -43,7 +43,7 @@ get_header();
         <script>
            
 
-            let data, categories, tema;
+            let dataWP, categories, tema;
             let filter = "alle"
             let filterTema = "alle"
 
@@ -57,8 +57,8 @@ get_header();
                     const temaJSONData = await fetch(temaUrl);
                     tema = await temaJSONData.json()
                     categories = await catJSONData.json()
-                    data = await JSONData.json();
-                    vis(data);
+                    dataWP = await JSONData.json();
+                    vis(dataWP);
                     opretKnapper();
                     opretSelects();
                 }
@@ -69,7 +69,7 @@ get_header();
                     const container = document.querySelector("#liste")
                     container.textContent ="";
 
-                    data.forEach((el) => {
+                    dataWP.forEach((el) => {
                         if((filter == "alle" || el._institut.includes(filter)) && (filterTema == "alle" || el._tema[0].toLowerCase().includes(filterTema)) ) {
                             
 
