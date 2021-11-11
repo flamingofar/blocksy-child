@@ -194,6 +194,11 @@ button.filter:not(:first-child) {
 		font-weight: 700;
 	}
 
+	button:hover {
+		transform: unset;
+		background: var(--green-accent-color-valgt);
+	}
+
 	#filtrering {
 		margin-bottom: 1rem;
 	}
