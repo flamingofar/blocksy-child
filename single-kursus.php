@@ -15,16 +15,15 @@
 get_header();
 ?>
 <div id="primary" class="content-area">
-		<main id="main" class="site-main filter-main">
+		<main id="main" class="site-main">
 		
-		<section class="single_section section_1">
-			<div class="header_section">
-				<div class="text">
-					<h2 class="navn">DET VI TILBYDER</h2>
-					<h3 class="titel"></h3>
-					<p class="beskrivelse"></p>
-				</div>
-				<img class="fn" src="#" alt="" />
+		<!-- First Section -->
+		<section class="single_section">
+			<div class="text">
+				<h2 class=>DET VI TILBYDER</h2>
+				<h3 class="navn"></h3>
+				<p class="beskrivelse"></p>
+				<img class="image" src="#" alt="" />
 			</div>
 			<div class="details_container">
 				<div class="details">
@@ -41,14 +40,41 @@ get_header();
 				</div>
 			</div>
 		</section>
-		<section class="section_2">
-			<article>
-				<img class="kursus_img" src="#" alt="">
-				<div class="tekst_1_container">
-					<h3 class="titel_1"></h3>
-					<p class="tekst_1"></p>
-				</div>
-			</article>
+
+		<!-- Second Section -->
+		<section>
+			<div>
+				<h3></h3>
+				<p></p>
+			</div>
+		</section>
+		<!-- Third Section -->
+		<section>
+			<div>
+				<h3></h3>
+				<p></p>
+			</div>
+		</section>
+			<!-- Fourth Section -->
+		<section>
+			<div>
+				<h3></h3>
+				<p></p>
+			</div>
+		</section>
+			<!-- Fifth Section -->
+		<section>
+			<div>
+				<h3></h3>
+				<p></p>
+			</div>
+		</section>
+			<!-- Sixth Section -->
+		<section>
+			<div>
+				<h3></h3>
+				<p></p>
+			</div>
 		</section>
 
 		<script>
@@ -61,23 +87,33 @@ get_header();
 			async function loadJSON() {
 				const JSONData = await fetch(url);
 				kursus = await JSONData.json();
-				console.log(kursus)
+				
 				vis();
 			}
 
 			function vis() {
-				// Section 1
-                document.querySelector(".titel").textContent = kursus._titel;
-                document.querySelector(".fn").src = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-content/uploads/2021/11/fn_verdensmaal.png";
-                document.querySelector(".beskrivelse").innerHTML = kursus._info_tekst;
+                document.querySelector(".navn").textContent = kursus.titel;
+                document.querySelector(".beskrivelse").textContent = kursus._info_tekst;
                 document.querySelector(".pris").textContent = `${kursus.pris}`;
-				document.querySelector(".antal").textContent = `${kursus.antal_deltagere}kr`;
+				document.querySelector(".antal").textContent = `${kursus.antal_deltagere}`;
 				document.querySelector(".varighed").textContent = `${kursus.varighed}`;
 
-				// Section 2
-				document.querySelector(".kursus_img").src = kursus._billede.guid;
-				document.querySelector(".titel_1").textContent = `${kursus.titel_1}`;
-				document.querySelector(".tekst_1").textContent = `${kursus.tekst_1}`;
+
+				// Singleview PODS
+				document.querySelector("section:nth-child(2) h3").textContent = kursus.titel_1;
+				document.querySelector("section:nth-child(2) p").textContent = kursus.tekst_1;
+				
+				document.querySelector("section:nth-child(3) h3").textContent = kursus.titel_2;
+				document.querySelector("section:nth-child(3) p").textContent = kursus.tekst_2;
+				
+				document.querySelector("section:nth-child(4) h3").textContent = kursus.titel_3;
+				document.querySelector("section:nth-child(4) p").textContent = kursus.tekst_3;
+				
+				document.querySelector("section:nth-child(5) h3").textContent = kursus.titel_4;
+				document.querySelector("section:nth-child(5) p").textContent = kursus.tekst_4;
+				
+				document.querySelector("section:nth-child(6) h3").textContent = kursus.titel_5;
+				document.querySelector("section:nth-child(6) p").textContent = kursus.tekst_5;
 				
 			}
 			loadJSON()
