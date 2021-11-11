@@ -44,7 +44,8 @@ h4 {
 	margin: 0;
 }
 
-.filter-main {
+.filter-main,
+.singleview {
 	display: grid;
 	grid-template-columns:
 		minmax(1rem, 1fr)
@@ -53,7 +54,8 @@ h4 {
 	margin-bottom: 1rem;
 }
 
-.filter-main > * {
+.filter-main > *,
+.singleview > * {
 	grid-column: 2;
 	gap: 1rem;
 }
@@ -164,6 +166,44 @@ button.filter:not(:first-child) {
 .valgt {
 	background: var(--green-accent-color-valgt) !important;
 	color: var(--text-color) !important;
+}
+
+/*-------------------------------------- SINGLE VIEW --------------------------------------*/
+
+.singleview section:not(:first-child) {
+	display: grid;
+	grid-template-columns:
+		minmax(1rem, 1fr)
+		minmax(auto, 850px)
+		minmax(1rem, 1fr);
+	margin-bottom: 1rem;
+
+	grid-column: 1/-1;
+	height: auto;
+}
+
+section:nth-child(even) {
+	background: var(--green-accent-color);
+}
+
+section .content_wrapper {
+	grid-column: 2;
+	display: flex;
+	row-gap: 0.5rem;
+}
+
+section:nth-child(odd) .content_wrapper {
+	flex-direction: row-reverse;
+}
+
+section div:first-child {
+	flex: 1;
+}
+section div:last-child {
+	flex: 1;
+
+	display: flex;
+	place-content: center;
 }
 
 @media screen and (min-width: 767px) {
