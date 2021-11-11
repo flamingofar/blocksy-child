@@ -17,13 +17,26 @@ get_header();
 
 <div id="primary" class="content-area">
 	<main id="main" class="site-main filter-main">
-    <nav id="filtrering"><button class="filter valgt" data-cat="alle"> Alle </button>
-		</nav> 
+    <nav id="filtrering">
+        <button class="filter valgt" data-cat="alle"> Alle </button>
+	</nav> 
+
+        <!-- Mobil Sekundær filtrering -->
         <form>
-<select id="selectFilter" name="dropdown">
-    <option value="alle" selected>Alle</option>
-</select>
-</form>
+        <h4>Temaer</h4>
+            <select id="selectFilter" name="dropdown">
+                <option value="alle" selected>Alle</option>
+            </select>
+        </form>
+
+    <!-- Desktop Filtrering -->
+    <div id="desk_container">
+    <h4>Temaer</h4>
+    <ul >
+       <li class="desk_filter valgt_tema" data-cat="alle">Alle</li>
+
+    </ul>
+    </div>
 		<div id="liste" ></div>
 
         
@@ -37,18 +50,17 @@ get_header();
                     <div class="details">
                         <div>
                         <h2 class="navn"></h2>
-                        <div class="tags">
-                            <span class="institut_1 institut"></span>
-                            <span class="institut_2 institut"></span>
-                            <span class="fag_1 fag"></span>
-                            <span class="fag_2 fag"></span>
-                        </div>
-
+                            <div class="tags">
+                                <span class="institut_1 institut"></span>
+                                <span class="institut_2 institut"></span>
+                                <span class="fag_1 fag"></span>
+                                <span class="fag_2 fag"></span>
+                            </div>
                         </div>
                         
                         <p class="beskrivelse"></p>
 
-                        <div>
+                        <div class="btn_container">
                             <button class="se_mere">Se Mere</button>
                         </div>
                     </div>
@@ -76,6 +88,7 @@ get_header();
                     vis(dataWP);
                     console.log(dataWP)
                     opretKnapper();
+                    opretTemaKnapper()
                     opretSelects();
                 }
 
@@ -117,65 +130,100 @@ get_header();
                     }
 
 // ----------- OPRET KNAPPER ----------- //
-                function opretKnapper() {
-                    categories.forEach(el => {
-                        document.querySelector("#filtrering").innerHTML +=`<button class="filter" data-cat="${el.name}">${el.name}</button>`
+function opretKnapper() {
+    categories.forEach(el => {
+        document.querySelector("#filtrering").innerHTML +=`<button class="filter" data-cat="${el.name}">${el.name}</button>`
+        
+        
+    })
+    addEventlistenersToButtons()
+}
 
-                        
-                    })
-                    addEventlistenersToButtons()
-                }
-
-                function addEventlistenersToButtons() {
-                    document.querySelectorAll("#filtrering button").forEach( el => {
-                        
-                        el.addEventListener("click", filtrering);
-                        
-                    })
-                }
+function addEventlistenersToButtons() {
+    document.querySelectorAll("#filtrering button").forEach( el => {
+        console.log("Hej")
+        el.addEventListener("click", filtrering);
+        
+    })
+}
 
 // ----------- OPRET SELECTS ----------- //
-                function opretSelects() {
-                    tema.forEach(el => {
-                        document.querySelector("#selectFilter").innerHTML +=`<option value = "${el.name.toLowerCase()}" selected>${el.name}</option>`
+function opretSelects() {
+    tema.forEach(el => {
+        document.querySelector("#selectFilter").innerHTML +=`<option value = "${el.name.toLowerCase()}" selected>${el.name}</option>`
 
-                        
-                    })
-                    addEventlistenersSelects()
-                }
+        
+    })
+    addEventlistenersSelects()
+}
 
-                function addEventlistenersSelects() {
-                    document.querySelectorAll("#selectFilter").forEach( el => {
-                        
-                        el.addEventListener("change", filtreringTema);
-                        
-                    })
-                }
+function addEventlistenersSelects() {
+    document.querySelectorAll("#selectFilter").forEach( el => {
+        
+        el.addEventListener("change", filtreringTemaSelect);
+        
+    })
+}
+
+
+// ----------- OPRET TEMA KNAPPER ----------- // 
+function opretTemaKnapper() {
+    tema.forEach(el => {
+        document.querySelector("#desk_container ul").innerHTML +=`<li class="desk_filter" data-cat="${el.name}">${el.name}</li>`
+
+        
+    })
+    addEventlistenersToButtonsDesk()
+}
+
+function addEventlistenersToButtonsDesk() {
+    document.querySelectorAll("#desk_container li").forEach( el => {
+        
+        el.addEventListener("click", filtreringTemaDesk);
+        console.log("Temaknapper")
+        
+    })
+}
 
 // ----------- FILTRERING NORMAL ----------- //
-                function filtrering() {
-                    filter = this.dataset.cat.toString();
+function filtrering() {
+    filter = this.dataset.cat.toString();
 
-                    document.querySelectorAll("#filtrering .filter").forEach(elm => {
-                        
-                        elm.classList.remove("valgt");
-                        });
-                    //tilføj .valgt til den valgte
-                        this.classList.add("valgt");
+    document.querySelectorAll("#filtrering .filter").forEach(elm => {
+        
+        elm.classList.remove("valgt");
+        });
+    //tilføj .valgt til den valgte
+        this.classList.add("valgt");
+        console.log(filter)
+    vis()
+}
 
-                    vis()
-                }
+// ----------- FILTRERING TEMA SELECTS ----------- //
+function filtreringTemaSelect() {
+    // filterTema = this.value.toLowerCase();
+    filterTema = document.querySelector("#selectFilter").value;
 
-// ----------- FILTRERING TEMA ----------- //
-                function filtreringTema() {
-                    // filterTema = this.value.toLowerCase();
-                    filterTema = document.querySelector("#selectFilter").value;
+console.log(filterTema)
+    vis()
+}
 
-                    console.log(filterTema)
+// ----------- FILTRERING TEMA DESKTOP ----------- //
+function filtreringTemaDesk() {
+    filterTema = this.dataset.cat.toString().toLowerCase();
 
-                    vis()
-                }
-                loadJSON();
+    document.querySelectorAll("#desk_container ul li").forEach(elm => {
+        
+        elm.classList.remove("valgt_tema");
+        });
+    //tilføj .valgt til den valgte
+        this.classList.add("valgt_tema");
+        console.log(filterTema)
+
+    vis()
+}
+
+loadJSON();
         </script>
 
 	</main>
