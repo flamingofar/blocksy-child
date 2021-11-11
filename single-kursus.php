@@ -83,17 +83,20 @@ get_header();
 
 			let kursus;
 			
+			
 			// Rest API Call
 			async function loadJSON() {
 				const JSONData = await fetch(url);
 				kursus = await JSONData.json();
-				
+				console.log(kursus)
 				vis();
 			}
+				
 
 			function vis() {
                 document.querySelector(".navn").textContent = kursus.titel;
                 document.querySelector(".beskrivelse").textContent = kursus._info_tekst;
+				document.querySelector(".image").src = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-content/uploads/2021/11/fn_verdensmaal.png"
                 document.querySelector(".pris").textContent = `${kursus.pris}`;
 				document.querySelector(".antal").textContent = `${kursus.antal_deltagere}`;
 				document.querySelector(".varighed").textContent = `${kursus.varighed}`;

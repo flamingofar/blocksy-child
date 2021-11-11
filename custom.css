@@ -14,8 +14,7 @@
 }
 
 span:empty,
-p:empty,
-div:empty:not(.image) {
+p:empty {
 	display: none;
 }
 
