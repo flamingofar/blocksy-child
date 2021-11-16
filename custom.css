@@ -51,7 +51,7 @@ h4 {
 		minmax(1rem, 1fr)
 		minmax(auto, 850px)
 		minmax(1rem, 1fr);
-	margin-bottom: 1rem;
+	margin: 1.5rem 0;
 }
 
 .filter-main > *,
@@ -164,13 +164,29 @@ button.filter:not(:first-child) {
 }
 
 .valgt {
-	background: var(--green-accent-color-valgt) !important;
-	color: var(--text-color) !important;
+	background: var(--text-color) !important;
+	color: var(--bg-color) !important;
 }
 
 /*-------------------------------------- SINGLE VIEW --------------------------------------*/
 
+.singleview section:first-child {
+	display: flex;
+	flex-direction: column;
+}
+
+.singleview section:first-child .text {
+	display: flex;
+}
+.singleview section:first-child .text div {
+	flex: 2;
+}
+.singleview section:first-child .text img {
+	flex: 1;
+}
+
 .singleview section:not(:first-child) {
+	padding: 1.5rem 0;
 	display: grid;
 	grid-template-columns:
 		minmax(1rem, 1fr)
@@ -182,28 +198,60 @@ button.filter:not(:first-child) {
 	height: auto;
 }
 
-section:nth-child(even) {
+.singleview section:nth-child(even) {
 	background: var(--green-accent-color);
 }
 
-section .content_wrapper {
+.singleview section .content_wrapper {
 	grid-column: 2;
 	display: flex;
 	row-gap: 0.5rem;
 }
 
-section:nth-child(odd) .content_wrapper {
+.singleview section:nth-child(odd) .content_wrapper {
 	flex-direction: row-reverse;
 }
 
-section div:first-child {
-	flex: 1;
+.singleview section:not(:first-child) div:first-child {
+	flex: 2;
+	margin: 0 1rem;
 }
-section div:last-child {
+.singleview section:not(:first-child) div:last-child {
 	flex: 1;
+	margin: 0 1rem;
 
 	display: flex;
 	place-content: center;
+}
+
+.singleview img {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
+.singleview .details_container {
+	display: flex;
+	justify-content: space-around;
+	column-gap: 1rem;
+}
+
+.singleview .details_container .details {
+	border-radius: 3px;
+
+	flex-grow: 0;
+	flex-shrink: 0;
+
+	display: flex;
+}
+
+.singleview .details_container .details .icon {
+	font-size: 4rem;
+	vertical-align: middle;
+}
+.singleview .details_container .details p {
+	width: 8rem;
+	text-align: center;
 }
 
 @media screen and (min-width: 767px) {

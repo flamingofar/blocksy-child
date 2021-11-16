@@ -21,23 +21,25 @@ get_header();
 		<!-- First Section -->
 		<section class="single_section">
 			<div class="text">
-				<h2 class=>DET VI TILBYDER</h2>
-				<h3 class="navn"></h3>
-				<p class="beskrivelse"></p>
+				<div>
+					<h2 class=>DET VI TILBYDER</h2>
+					<h3 class="navn"></h3>
+					<p class="beskrivelse"></p>	
+				</div>
 				<img class="image" src="#" alt="" />
 			</div>
 			<div class="details_container">
 				<div class="details">
-					<div class="icon"></div>
-					<p class="varighed"></p>
+					<div class="icon">⏰</div>
+					<p class="varighed">---</p>
 				</div>
 				<div class="details">
-					<div class="icon"></div>
-					<p class="pris"></p>
+					<div class="icon">💸</div>
+					<p class="pris">---</p>
 				</div>
 				<div class="details">
-					<div class="icon"></div>
-					<p class="antal"></p>
+					<div class="icon">👥</div>
+					<p class="antal">---</p>
 				</div>
 			</div>
 		</section>
@@ -150,7 +152,7 @@ get_header();
 				
 				document.querySelector("section:nth-child(6) h3").textContent = kursus.titel_5;
 				document.querySelector("section:nth-child(6) p").textContent = kursus.tekst_5;
-				document.querySelector("section:nth-child(6) .image").src = "https://malteskjoldager.dk/kea/2.Semester/Tema_9/ungebyen/wp-content/uploads/2021/11/fn_verdensmaal.png"
+				
 				
 			}
 			loadJSON()
